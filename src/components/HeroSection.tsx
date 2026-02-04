@@ -1,114 +1,178 @@
-import React from 'react';
-import { useWorld } from '@/contexts/WorldContext';
-import CountdownTimer from './CountdownTimer';
+import React from "react";
+import { useWorld } from "@/contexts/WorldContext";
+import CountdownTimer from "./CountdownTimer";
 
-import titleNormal1 from '@/assets/normalworld.png';
-import titleNormal2 from '@/assets/normalworld1.png';
+import titleNormal1 from "@/assets/normalworld.png";
+import titleNormal2 from "@/assets/normalworld1.png";
 
 const HeroSection: React.FC = () => {
   const { isStrangerWorld } = useWorld();
 
   const handleRegisterClick = () => {
-    const section = document.getElementById('technical-events');
-    section?.scrollIntoView({
-      behavior: 'smooth',
-      block: 'start',
-    });
+    const section = document.getElementById("technical-events");
+    section?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
   return (
     <section
       id="hero"
-      className="min-h-screen flex flex-col items-center justify-center relative pt-20 pb-16"
+      style={{
+        minHeight: "100vh",
+        padding: "120px 20px 80px",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        position: "relative",
+        fontFamily: "'Irish Grover', cursive",
+        overflow: "hidden",
+      }}
     >
-      <div className="container mx-auto px-6 text-center relative z-10">
+      {/* Google Font Import */}
+      <style>
+        {`
+          @import url('https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap');
 
+          @keyframes fadeIn {
+            to { opacity: 1; }
+          }
+
+          @keyframes fall {
+            from { transform: translateY(0); opacity: 1; }
+            to { transform: translateY(600px); opacity: 0; }
+          }
+        `}
+      </style>
+
+      <div
+        style={{
+          textAlign: "center",
+          maxWidth: "1200px",
+          zIndex: 2,
+        }}
+      >
         {/* Subtitle */}
         <p
-          className={`font-body text-sm md:text-base uppercase tracking-[0.3em] mb-6 transition-all duration-700 opacity-0 animate-fade-in ${
-            isStrangerWorld ? 'text-red-300/80' : 'text-primary/80'
-          }`}
+          style={{
+            fontSize: "16px", // ⬆ increased
+            letterSpacing: "0.32em",
+            textTransform: "uppercase",
+            marginBottom: "26px",
+            color: isStrangerWorld
+              ? "rgba(255,120,120,0.85)"
+              : "rgba(120,170,255,0.85)",
+            opacity: 0,
+            animation: "fadeIn 1s forwards",
+          }}
         >
           Department of Computer Science and Engineering proudly presents
         </p>
 
-        {/* ================= IMAGE TITLE SWITCH ================= */}
+        {/* Title Image Switch */}
         <div
-          className="relative mx-auto mb-6 opacity-0 animate-fade-in"
-          style={{ animationDelay: '0.2s' }}
+          style={{
+            position: "relative",
+            marginBottom: "28px",
+          }}
         >
-          {/* Normal World (Before Flip) */}
           <img
             src={titleNormal1}
-            alt="NORMAL WORLD"
-            className={`mx-auto transition-all duration-700 ease-in-out
-              ${isStrangerWorld ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}
-              w-[280px] sm:w-[420px] md:w-[600px] lg:w-[720px]
-            `}
+            alt="Normal World"
+            style={{
+              width: "760px", // ⬆ slightly bigger
+              maxWidth: "92%",
+              transition: "all 0.7s ease",
+              opacity: isStrangerWorld ? 0 : 1,
+              transform: isStrangerWorld ? "scale(0.95)" : "scale(1)",
+            }}
           />
 
-          {/* Stranger World (After Flip) */}
           <img
             src={titleNormal2}
-            alt="STRANGER WORLD"
-            className={`absolute inset-0 mx-auto transition-all duration-700 ease-in-out
-              ${isStrangerWorld ? 'opacity-100 scale-100' : 'opacity-0 scale-105'}
-              w-[280px] sm:w-[420px] md:w-[600px] lg:w-[720px]
-            `}
+            alt="Stranger World"
+            style={{
+              position: "absolute",
+              inset: 0,
+              margin: "auto",
+              width: "760px", // ⬆ slightly bigger
+              maxWidth: "92%",
+              transition: "all 0.7s ease",
+              opacity: isStrangerWorld ? 1 : 0,
+              transform: isStrangerWorld ? "scale(1)" : "scale(1.05)",
+            }}
           />
         </div>
 
         {/* Tagline */}
         <p
-          className={`font-display text-lg md:text-2xl tracking-[0.2em] mb-12 transition-all duration-700 opacity-0 animate-fade-in ${
-            isStrangerWorld ? 'text-red-400/90' : 'text-primary/90'
-          }`}
-          style={{ animationDelay: '0.4s' }}
+          style={{
+            fontSize: "30px", // ⬆ increased
+            letterSpacing: "0.22em",
+            marginBottom: "54px",
+            color: isStrangerWorld
+              ? "rgba(255,80,80,0.9)"
+              : "rgba(120,170,255,0.9)",
+            opacity: 0,
+            animation: "fadeIn 1s forwards 0.4s",
+          }}
         >
           Upside Down of Innovation
         </p>
 
         {/* CTA Button */}
-        <div
-          className="mb-16 opacity-0 animate-fade-in"
-          style={{ animationDelay: '0.6s' }}
+        <button
+          onClick={handleRegisterClick}
+          style={{
+            padding: "18px 46px", // ⬆ increased
+            fontSize: "20px", // ⬆ increased
+            letterSpacing: "0.22em",
+            textTransform: "uppercase",
+            borderRadius: "12px",
+            cursor: "pointer",
+            border: `2px solid ${
+              isStrangerWorld ? "#f87171" : "#60a5fa"
+            }`,
+            background: isStrangerWorld ? "#b91c1c" : "#1e40af",
+            color: "#fff",
+            transition: "all 0.4s ease",
+          }}
+          onMouseEnter={(e) =>
+            (e.currentTarget.style.transform = "scale(1.08)")
+          }
+          onMouseLeave={(e) =>
+            (e.currentTarget.style.transform = "scale(1)")
+          }
         >
-          <button
-            onClick={handleRegisterClick}
-            className={`cta-3d font-display text-lg md:text-xl px-10 py-4 rounded-lg border-2 uppercase tracking-widest transition-all duration-500 transform hover:scale-105 ${
-              isStrangerWorld
-                ? 'bg-red-600 border-red-400 text-white animate-pulse-glow hover:bg-red-500'
-                : 'bg-blue-600 border-blue-400 text-white animate-pulse-glow hover:bg-blue-500'
-                
-            }`}
-            style={{ perspective: '1000px' }}
-          >
-            Register Now
-          </button>
-        </div>
+          Register Now
+        </button>
 
-        {/* Countdown Timer */}
-        <div
-          className="opacity-0 animate-fade-in"
-          style={{ animationDelay: '0.8s' }}
-        >
+        {/* Countdown */}
+        <div style={{ marginTop: "56px" }}>
           <CountdownTimer />
         </div>
       </div>
 
       {/* Falling Stars */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          pointerEvents: "none",
+          overflow: "hidden",
+        }}
+      >
         {[...Array(5)].map((_, i) => (
-          <div
+          <span
             key={i}
-            className={`absolute w-1 h-1 rounded-full animate-falling-star transition-all duration-700 ${
-              isStrangerWorld ? 'bg-red-500' : 'bg-primary'
-            }`}
             style={{
+              position: "absolute",
+              width: "5px", // ⬆ slightly bigger
+              height: "5px",
+              borderRadius: "50%",
+              background: isStrangerWorld ? "red" : "#60a5fa",
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 50}%`,
+              animation: `fall ${3 + Math.random() * 2}s linear infinite`,
               animationDelay: `${i * 2}s`,
-              animationDuration: `${3 + Math.random() * 2}s`,
             }}
           />
         ))}

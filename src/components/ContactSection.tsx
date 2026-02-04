@@ -1,155 +1,278 @@
-import React from 'react';
-import { useWorld } from '@/contexts/WorldContext';
-import { Instagram, MapPin, Phone, Mail } from 'lucide-react';
+import React from "react";
+import { useWorld } from "@/contexts/WorldContext";
+import { Instagram, MapPin, Phone, Mail } from "lucide-react";
 
 const ContactSection: React.FC = () => {
   const { isStrangerWorld } = useWorld();
 
   const coordinators = [
     {
-      type: 'Staff Coordinator',
-      name: 'Dr. John Smith',
-      phone: '+91 98765 43210',
-      email: 'john.smith@college.edu',
+      type: "Staff Coordinator",
+      name: "Dr. John Smith",
+      phone: "+91 98765 43210",
+      email: "john.smith@college.edu",
     },
     {
-      type: 'Student Coordinator',
-      name: 'Jane Doe',
-      phone: '+91 98765 43211',
-      email: 'jane.doe@college.edu',
+      type: "Student Coordinator",
+      name: "Jane Doe",
+      phone: "+91 98765 43211",
+      email: "jane.doe@college.edu",
     },
   ];
 
   return (
-    <section id="contact" className="py-20 relative">
-      <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className={`font-display text-4xl md:text-5xl font-bold tracking-wider mb-4 transition-all duration-700 ${
-            isStrangerWorld ? 'text-red-500 text-glow' : 'text-foreground text-glow'
-          }`}>
-            Contact Us
-          </h2>
-          <p className={`font-body text-lg transition-all duration-700 ${
-            isStrangerWorld ? 'text-red-200/60' : 'text-muted-foreground'
-          }`}>
-            Connect with the coordinators
-          </p>
-        </div>
+    <>
+      {/* ✅ SAME Irish Grover import style */}
+      <style>
+        {`
+          @import url('https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap');
+        `}
+      </style>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-          {/* Coordinator Cards */}
-          {coordinators.map((coord, index) => (
-            <div
-              key={index}
-              className={`rounded-xl border-2 p-6 backdrop-blur-sm transition-all duration-700 ${
-                isStrangerWorld 
-                  ? 'bg-black/60 border-red-500/40' 
-                  : 'bg-card/60 border-primary/30 card-hover-glow'
-              }`}
+      <section
+        id="contact"
+        style={{
+          padding: "100px 20px",
+          fontFamily: "'Irish Grover', cursive",
+          position: "relative",
+        }}
+      >
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          {/* Heading */}
+          <div style={{ textAlign: "center", marginBottom: "64px" }}>
+            <h2
+              style={{
+                fontSize: "clamp(32px, 5vw, 48px)",
+                letterSpacing: "0.15em",
+                marginBottom: "12px",
+                color: isStrangerWorld ? "#ef4444" : "#e5e7eb",
+                textShadow: "0 0 12px rgba(255,0,0,0.6)",
+              }}
             >
-              <h3 className={`font-display text-lg font-bold tracking-wide mb-4 transition-all duration-700 ${
-                isStrangerWorld ? 'text-red-400' : 'text-primary'
-              }`}>
-                {coord.type}
-              </h3>
-              <p className={`font-body text-lg font-semibold mb-3 transition-all duration-700 ${
-                isStrangerWorld ? 'text-red-100' : 'text-foreground'
-              }`}>
-                {coord.name}
-              </p>
-              <div className="space-y-2">
-                <a 
-                  href={`tel:${coord.phone}`}
-                  className={`flex items-center gap-2 text-sm transition-all duration-300 ${
-                    isStrangerWorld 
-                      ? 'text-red-300/70 hover:text-red-300' 
-                      : 'text-muted-foreground hover:text-primary'
-                  }`}
+              Contact Us
+            </h2>
+            <p
+              style={{
+                fontSize: "18px",
+                color: isStrangerWorld
+                  ? "rgba(255,150,150,0.6)"
+                  : "rgba(200,200,200,0.7)",
+              }}
+            >
+              Connect with the coordinators
+            </p>
+          </div>
+
+          {/* Cards Grid */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+              gap: "24px",
+            }}
+          >
+            {/* Coordinator Cards */}
+            {coordinators.map((coord, index) => (
+              <div
+                key={index}
+                style={{
+                  padding: "24px",
+                  borderRadius: "16px",
+                  border: `2px solid ${
+                    isStrangerWorld
+                      ? "rgba(239,68,68,0.4)"
+                      : "rgba(59,130,246,0.3)"
+                  }`,
+                  background: isStrangerWorld
+                    ? "rgba(0,0,0,0.6)"
+                    : "rgba(30,41,59,0.6)",
+                  backdropFilter: "blur(8px)",
+                  transition: "all 0.5s ease",
+                }}
+              >
+                <h3
+                  style={{
+                    fontSize: "18px",
+                    letterSpacing: "0.1em",
+                    marginBottom: "16px",
+                    color: isStrangerWorld ? "#f87171" : "#60a5fa",
+                  }}
                 >
-                  <Phone className="w-4 h-4" />
+                  {coord.type}
+                </h3>
+
+                <p
+                  style={{
+                    fontSize: "18px",
+                    marginBottom: "12px",
+                    color: isStrangerWorld ? "#fee2e2" : "#e5e7eb",
+                  }}
+                >
+                  {coord.name}
+                </p>
+
+                {/* Phone */}
+                <a
+                  href={`tel:${coord.phone}`}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
+                    fontSize: "14px",
+                    marginBottom: "8px",
+                    textDecoration: "none",
+                    color: isStrangerWorld
+                      ? "rgba(252,165,165,0.8)"
+                      : "rgba(203,213,225,0.9)",
+                  }}
+                >
+                  <Phone size={16} />
                   {coord.phone}
                 </a>
-                <a 
+
+                {/* Email */}
+                <a
                   href={`mailto:${coord.email}`}
-                  className={`flex items-center gap-2 text-sm transition-all duration-300 ${
-                    isStrangerWorld 
-                      ? 'text-red-300/70 hover:text-red-300' 
-                      : 'text-muted-foreground hover:text-primary'
-                  }`}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px",
+                    fontSize: "14px",
+                    textDecoration: "none",
+                    color: isStrangerWorld
+                      ? "rgba(252,165,165,0.8)"
+                      : "rgba(203,213,225,0.9)",
+                  }}
                 >
-                  <Mail className="w-4 h-4" />
+                  <Mail size={16} />
                   {coord.email}
                 </a>
               </div>
-            </div>
-          ))}
+            ))}
 
-          {/* Follow Us */}
-          <div
-            className={`rounded-xl border-2 p-6 backdrop-blur-sm transition-all duration-700 ${
-              isStrangerWorld 
-                ? 'bg-black/60 border-red-500/40' 
-                : 'bg-card/60 border-primary/30 card-hover-glow'
-            }`}
-          >
-            <h3 className={`font-display text-lg font-bold tracking-wide mb-4 transition-all duration-700 ${
-              isStrangerWorld ? 'text-red-400' : 'text-primary'
-            }`}>
-              Follow Us
-            </h3>
-            <a 
-              href="https://instagram.com" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className={`flex items-center gap-3 p-3 rounded-lg border transition-all duration-300 ${
-                isStrangerWorld 
-                  ? 'border-red-500/30 hover:bg-red-500/10 text-red-200' 
-                  : 'border-primary/30 hover:bg-primary/10 text-foreground'
-              }`}
+            {/* Follow Us */}
+            <div
+              style={{
+                padding: "24px",
+                borderRadius: "16px",
+                border: `2px solid ${
+                  isStrangerWorld
+                    ? "rgba(239,68,68,0.4)"
+                    : "rgba(59,130,246,0.3)"
+                }`,
+                background: isStrangerWorld
+                  ? "rgba(0,0,0,0.6)"
+                  : "rgba(30,41,59,0.6)",
+              }}
             >
-              <Instagram className="w-6 h-6" />
-              <span className="font-body">@innovate8_cse</span>
-            </a>
-          </div>
+              <h3
+                style={{
+                  fontSize: "18px",
+                  marginBottom: "16px",
+                  letterSpacing: "0.1em",
+                  color: isStrangerWorld ? "#f87171" : "#60a5fa",
+                }}
+              >
+                Follow Us
+              </h3>
 
-          {/* Find Us */}
-          <div
-            className={`rounded-xl border-2 p-6 backdrop-blur-sm transition-all duration-700 ${
-              isStrangerWorld 
-                ? 'bg-black/60 border-red-500/40' 
-                : 'bg-card/60 border-primary/30 card-hover-glow'
-            }`}
-          >
-            <h3 className={`font-display text-lg font-bold tracking-wide mb-4 transition-all duration-700 ${
-              isStrangerWorld ? 'text-red-400' : 'text-primary'
-            }`}>
-              Find Us
-            </h3>
-            <div className={`flex items-start gap-3 transition-all duration-700 ${
-              isStrangerWorld ? 'text-red-200/80' : 'text-foreground/80'
-            }`}>
-              <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" />
-              <p className="font-body text-sm">
-                Department of CSE,<br />
-                Engineering College,<br />
-                City, State - 600001
-              </p>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "12px",
+                  padding: "12px",
+                  borderRadius: "10px",
+                  textDecoration: "none",
+                  border: `1px solid ${
+                    isStrangerWorld
+                      ? "rgba(239,68,68,0.3)"
+                      : "rgba(59,130,246,0.3)"
+                  }`,
+                  color: isStrangerWorld ? "#fecaca" : "#e5e7eb",
+                }}
+              >
+                <Instagram size={24} />
+                @innovate8_cse
+              </a>
+            </div>
+
+            {/* Find Us */}
+            <div
+              style={{
+                padding: "24px",
+                borderRadius: "16px",
+                border: `2px solid ${
+                  isStrangerWorld
+                    ? "rgba(239,68,68,0.4)"
+                    : "rgba(59,130,246,0.3)"
+                }`,
+                background: isStrangerWorld
+                  ? "rgba(0,0,0,0.6)"
+                  : "rgba(30,41,59,0.6)",
+              }}
+            >
+              <h3
+                style={{
+                  fontSize: "18px",
+                  marginBottom: "16px",
+                  letterSpacing: "0.1em",
+                  color: isStrangerWorld ? "#f87171" : "#60a5fa",
+                }}
+              >
+                Find Us
+              </h3>
+
+              <div
+                style={{
+                  display: "flex",
+                  gap: "12px",
+                  color: isStrangerWorld
+                    ? "rgba(254,202,202,0.8)"
+                    : "rgba(203,213,225,0.8)",
+                  fontSize: "14px",
+                }}
+              >
+                <MapPin size={18} />
+                <p>
+                  Department of CSE,<br />
+                  Engineering College,<br />
+                  City, State - 600001
+                </p>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Footer */}
-        <div className={`text-center mt-16 pt-8 border-t transition-all duration-700 ${
-          isStrangerWorld ? 'border-red-500/20' : 'border-primary/20'
-        }`}>
-          <p className={`font-body text-sm transition-all duration-700 ${
-            isStrangerWorld ? 'text-red-300/50' : 'text-muted-foreground'
-          }`}>
-            © 2024 INNOVATE8 - Department of Computer Science and Engineering
-          </p>
+          {/* Footer */}
+          <div
+            style={{
+              marginTop: "80px",
+              paddingTop: "24px",
+              textAlign: "center",
+              borderTop: `1px solid ${
+                isStrangerWorld
+                  ? "rgba(239,68,68,0.3)"
+                  : "rgba(59,130,246,0.3)"
+              }`,
+            }}
+          >
+            <p
+              style={{
+                fontSize: "14px",
+                color: isStrangerWorld
+                  ? "rgba(252,165,165,0.5)"
+                  : "rgba(203,213,225,0.6)",
+              }}
+            >
+              © 2024 INNOVATE8 - Department of Computer Science and Engineering
+            </p>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
