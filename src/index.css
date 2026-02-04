@@ -1,0 +1,362 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* INNOVATE8 Design System - Stranger Things Inspired */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Normal World - Deep Blue Theme */
+    --background: 220 30% 6%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 35% 8%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 35% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 200 100% 70%;
+    --primary-foreground: 220 30% 6%;
+
+    --secondary: 220 30% 15%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 220 25% 12%;
+    --muted-foreground: 215 20% 65%;
+
+    --accent: 200 100% 60%;
+    --accent-foreground: 220 30% 6%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 220 30% 20%;
+    --input: 220 30% 15%;
+    --ring: 200 100% 70%;
+
+    --radius: 0.75rem;
+
+    /* Custom Glow Colors */
+    --glow-blue: 200 100% 70%;
+    --glow-cyan: 185 100% 65%;
+    --glow-red: 0 85% 55%;
+    --glow-crimson: 348 100% 50%;
+
+    /* Stranger World Colors */
+    --stranger-bg: 0 0% 3%;
+    --stranger-accent: 0 85% 55%;
+    --stranger-glow: 0 100% 50%;
+
+    /* Fonts */
+    --font-display: 'Orbitron', sans-serif;
+    --font-body: 'Inter', sans-serif;
+  }
+
+  .stranger-world {
+    --background: 0 0% 3%;
+    --foreground: 0 0% 95%;
+
+    --card: 0 20% 8%;
+    --card-foreground: 0 0% 95%;
+
+    --primary: 0 85% 55%;
+    --primary-foreground: 0 0% 5%;
+
+    --secondary: 0 30% 12%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 0 20% 10%;
+    --muted-foreground: 0 20% 60%;
+
+    --accent: 0 100% 50%;
+    --accent-foreground: 0 0% 5%;
+
+    --border: 0 40% 25%;
+    --input: 0 30% 12%;
+    --ring: 0 85% 55%;
+
+    --glow-blue: 0 85% 55%;
+    --glow-cyan: 0 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  /* Glowing Text Effects */
+  .text-glow {
+    text-shadow: 
+      0 0 10px hsl(var(--primary) / 0.5),
+      0 0 20px hsl(var(--primary) / 0.3),
+      0 0 40px hsl(var(--primary) / 0.2);
+  }
+
+  .text-glow-strong {
+    text-shadow: 
+      0 0 10px hsl(var(--primary) / 0.8),
+      0 0 30px hsl(var(--primary) / 0.5),
+      0 0 60px hsl(var(--primary) / 0.3),
+      0 0 100px hsl(var(--primary) / 0.2);
+  }
+
+  /* Glowing Border Effects */
+  .border-glow {
+    box-shadow: 
+      0 0 10px hsl(var(--primary) / 0.3),
+      0 0 20px hsl(var(--primary) / 0.2),
+      inset 0 0 10px hsl(var(--primary) / 0.1);
+  }
+
+  .border-glow-strong {
+    box-shadow: 
+      0 0 15px hsl(var(--primary) / 0.5),
+      0 0 30px hsl(var(--primary) / 0.3),
+      0 0 50px hsl(var(--primary) / 0.2),
+      inset 0 0 15px hsl(var(--primary) / 0.15);
+  }
+
+  /* Card Hover Effects */
+  .card-hover-glow {
+    @apply transition-all duration-500 ease-out;
+  }
+
+  .card-hover-glow:hover {
+    box-shadow: 
+      0 0 20px hsl(var(--primary) / 0.4),
+      0 0 40px hsl(var(--primary) / 0.2),
+      0 0 60px hsl(var(--primary) / 0.1);
+    transform: translateY(-5px);
+  }
+
+  /* Flip Card Container */
+  .flip-card {
+    perspective: 1500px;
+  }
+
+  .flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+  }
+
+  .flip-card-inner.flipped {
+    transform: rotateY(180deg);
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .flip-card-back {
+    transform: rotateY(180deg);
+  }
+
+  /* Nav Link Hover */
+  .nav-link-glow {
+    @apply relative transition-all duration-300;
+  }
+
+  .nav-link-glow::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 origin-center transition-transform duration-300;
+    box-shadow: 0 0 10px hsl(var(--primary) / 0.5);
+  }
+
+  .nav-link-glow:hover::after {
+    @apply scale-x-100;
+  }
+
+  .nav-link-glow:hover {
+    text-shadow: 0 0 15px hsl(var(--primary) / 0.5);
+  }
+
+  /* CTA Button Animation */
+  .cta-3d {
+    animation: cta-float 3s ease-in-out infinite;
+  }
+
+  /* Countdown Box */
+  .countdown-box {
+    @apply border border-primary/50 bg-card/50 backdrop-blur-sm;
+    box-shadow: 
+      0 0 15px hsl(var(--primary) / 0.2),
+      inset 0 0 20px hsl(var(--primary) / 0.05);
+  }
+
+  /* Stars Background */
+  .stars-bg {
+    background-image: 
+      radial-gradient(2px 2px at 20px 30px, hsl(var(--primary) / 0.6), transparent),
+      radial-gradient(2px 2px at 40px 70px, hsl(var(--primary) / 0.4), transparent),
+      radial-gradient(1px 1px at 90px 40px, hsl(var(--primary) / 0.5), transparent),
+      radial-gradient(2px 2px at 160px 120px, hsl(var(--primary) / 0.6), transparent),
+      radial-gradient(1px 1px at 230px 80px, hsl(var(--primary) / 0.4), transparent),
+      radial-gradient(2px 2px at 300px 150px, hsl(var(--primary) / 0.5), transparent);
+    background-size: 350px 200px;
+    animation: twinkle 4s ease-in-out infinite alternate;
+  }
+
+  /* Red Particles for Stranger World */
+  .red-particles {
+    background-image: 
+      radial-gradient(3px 3px at 50px 50px, hsl(var(--stranger-accent) / 0.8), transparent),
+      radial-gradient(2px 2px at 100px 150px, hsl(var(--stranger-accent) / 0.6), transparent),
+      radial-gradient(3px 3px at 200px 100px, hsl(var(--stranger-accent) / 0.7), transparent),
+      radial-gradient(2px 2px at 300px 200px, hsl(var(--stranger-accent) / 0.5), transparent),
+      radial-gradient(3px 3px at 400px 80px, hsl(var(--stranger-accent) / 0.6), transparent);
+    background-size: 500px 300px;
+    animation: particle-float 6s ease-in-out infinite;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  /* Background Transition */
+  .bg-transition {
+    transition: background-image 1s ease-in-out, background-color 1s ease-in-out;
+  }
+}
+
+/* Keyframe Animations */
+@keyframes cta-float {
+  0%, 100% {
+    transform: translateZ(0) rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: translateZ(10px) rotateX(2deg) rotateY(-1deg);
+  }
+  50% {
+    transform: translateZ(20px) rotateX(-1deg) rotateY(2deg);
+  }
+  75% {
+    transform: translateZ(10px) rotateX(1deg) rotateY(-2deg);
+  }
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes particle-float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-20px) translateX(10px);
+    opacity: 1;
+  }
+}
+
+@keyframes falling-star {
+  0% {
+    transform: translateX(0) translateY(0) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(300px) translateY(300px) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+@keyframes lightning-flash {
+  0%, 90%, 100% {
+    opacity: 0;
+  }
+  92%, 94%, 96% {
+    opacity: 0.3;
+  }
+  93%, 95% {
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 
+      0 0 20px hsl(var(--primary) / 0.5),
+      0 0 40px hsl(var(--primary) / 0.3);
+  }
+  50% {
+    box-shadow: 
+      0 0 30px hsl(var(--primary) / 0.7),
+      0 0 60px hsl(var(--primary) / 0.4),
+      0 0 80px hsl(var(--primary) / 0.2);
+  }
+}
+
+@keyframes glitch {
+  0%, 100% {
+    transform: translate(0);
+    opacity: 1;
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(-2px, -2px);
+    opacity: 0.8;
+  }
+  60% {
+    transform: translate(2px, 2px);
+  }
+  80% {
+    transform: translate(2px, -2px);
+    opacity: 0.9;
+  }
+}
+
+.animate-falling-star {
+  animation: falling-star 3s linear infinite;
+}
+
+.animate-lightning {
+  animation: lightning-flash 8s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-glitch {
+  animation: glitch 0.3s ease-in-out infinite;
+}
