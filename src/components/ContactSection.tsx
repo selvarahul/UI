@@ -22,7 +22,6 @@ const ContactSection: React.FC = () => {
 
   return (
     <>
-      {/* ✅ SAME Irish Grover import style */}
       <style>
         {`
           @import url('https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap');
@@ -32,7 +31,7 @@ const ContactSection: React.FC = () => {
       <section
         id="contact"
         style={{
-          padding: "100px 20px",
+          padding: "70px 20px", // 🔽 reduced top spacing
           fontFamily: "'Irish Grover', cursive",
           position: "relative",
         }}
@@ -111,7 +110,6 @@ const ContactSection: React.FC = () => {
                   {coord.name}
                 </p>
 
-                {/* Phone */}
                 <a
                   href={`tel:${coord.phone}`}
                   style={{
@@ -130,7 +128,6 @@ const ContactSection: React.FC = () => {
                   {coord.phone}
                 </a>
 
-                {/* Email */}
                 <a
                   href={`mailto:${coord.email}`}
                   style={{
@@ -237,11 +234,18 @@ const ContactSection: React.FC = () => {
                 }}
               >
                 <MapPin size={18} />
-                <p>
-                  Department of CSE,<br />
-                  Engineering College,<br />
-                  City, State - 600001
-                </p>
+                <a
+                  href="https://www.google.com/maps/dir/?api=1&destination=Vel+Tech+Rangarajan+Dr+Sagunthala+R%26D+Institute+of+Science+and+Technology"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  <p>
+                    Department of CSE VTMT<br />
+                    Engineering College,<br />
+                    City, State - 600001
+                  </p>
+                </a>
               </div>
             </div>
           </div>
@@ -261,13 +265,35 @@ const ContactSection: React.FC = () => {
           >
             <p
               style={{
+                margin: 0,
+                fontSize: "14px",
+                letterSpacing: "0.05em",
+                color: isStrangerWorld ? "#fecaca" : "#e0f2fe",
+                textShadow: isStrangerWorld
+                  ? "0 0 8px rgba(239,68,68,0.6)"
+                  : "0 0 8px rgba(59,130,246,0.5)",
+              }}
+            >
+              <span style={{ opacity: 0.7 }}>Special thanks to</span>
+              <br />
+              <strong style={{ fontSize: "15px" }}>
+                Dr. R. Saravanan, M.E., Ph.D.
+              </strong>
+              <br />
+              <span style={{ opacity: 0.75 }}>
+                Head of the Department
+              </span>
+            </p>
+
+            <p
+              style={{
                 fontSize: "14px",
                 color: isStrangerWorld
                   ? "rgba(252,165,165,0.5)"
                   : "rgba(203,213,225,0.6)",
               }}
             >
-              © 2024 INNOVATE8 - Department of Computer Science and Engineering
+              © 2026 INNOVATE8 - Department of Computer Science and Engineering
             </p>
           </div>
         </div>

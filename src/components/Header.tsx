@@ -66,6 +66,23 @@ const Header: React.FC = () => {
                   width: "auto",
                 }}
               />
+              <p
+  style={{
+    background: "none",
+    border: "none",
+    cursor: "pointer",
+    fontSize: "13px",
+    letterSpacing: "0.2em",
+    textTransform: "uppercase",
+    color: isStrangerWorld
+      ? "#fecaca"
+      : "rgba(226,232,240,0.85)",
+    transition: "color 0.3s ease",
+  }}
+>
+  VELTECH MULTITECH
+</p>
+
             </div>
 
             {/* Desktop Navigation */}

@@ -55,14 +55,6 @@ const nonTechnicalEvents = [
     icon: <Puzzle size={48} />,
     formUrl: "https://forms.gle/VECNAS_PATTERNS_FORM",
   },
-  {
-    id: "weknots",
-    title: "WeKnots",
-    description:
-      "Team building and networking event. Form connections, build alliances, and strengthen bonds in this collaborative experience.",
-    icon: <Link size={48} />,
-    formUrl: "https://forms.gle/WEKNOTS_FORM",
-  },
 ];
 
 const EventsSection: React.FC = () => {
