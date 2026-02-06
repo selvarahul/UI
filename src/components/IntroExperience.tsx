@@ -76,6 +76,7 @@ const IntroExperience = ({ onComplete }: IntroExperienceProps) => {
   }));
 
   return (
+    <>
     
     <AnimatePresence>
       <motion.div
@@ -153,50 +154,59 @@ const IntroExperience = ({ onComplete }: IntroExperienceProps) => {
 
         {/* Phase 0 */}
         <AnimatePresence>
-          {phase === 0 && !isEntering && (
-            <motion.div className="text-center relative">
-             <motion.button
-                  onClick={handleEnter}
-                  style={{ fontFamily: "'Irish Grover', cursive" }}
-                  className="relative text-3xl md:text-5xl text-blue-400 px-10 py-6 border-2 border-blue-400/60 bg-void/80"
-                  animate={{
-                    textShadow: [
-                      "0 0 10px hsl(220 90% 60% / 0.5)",
-                      "0 0 30px hsl(220 90% 60% / 0.8)",
-                      "0 0 10px hsl(220 90% 60% / 0.5)",
-                    ],
-                  }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
-                  ENTER IF YOU DARE
-                </motion.button>
-            </motion.div>
-          )}
-        </AnimatePresence>
+  {phase === 0 && !isEntering && (
+    <motion.div className="text-center relative">
+      <motion.button
+        onClick={handleEnter}
+        style={{
+          fontFamily: "'Irish Grover', cursive",
+          fontSize: "clamp(1.8rem, 5vw, 3rem)", // ✅ responsive ONLY
+        }}
+        className="relative text-3xl md:text-5xl text-blue-400 px-10 py-6 border-2 border-blue-400/60 bg-void/80"
+        animate={{
+          textShadow: [
+            "0 0 10px hsl(220 90% 60% / 0.5)",
+            "0 0 30px hsl(220 90% 60% / 0.8)",
+            "0 0 10px hsl(220 90% 60% / 0.5)",
+          ],
+        }}
+        transition={{ duration: 2, repeat: Infinity }}
+      >
+        ENTER IF YOU DARE
+      </motion.button>
+    </motion.div>
+  )}
+</AnimatePresence>
+
 
         {/* Phase 1 */}
         <AnimatePresence>
-          {phase === 1 && (
-            <motion.h1
-                style={{ fontFamily: "'Irish Grover', cursive" }}
-                className="text-5xl md:text-8xl text-blue-400"
-                animate={{
-                  textShadow: [
-                    "0 0 20px hsl(220 90% 60%)",
-                    "0 0 5px hsl(220 90% 60%)",
-                    "0 0 30px hsl(220 90% 60%)",
-                    "none",
-                    "0 0 20px hsl(220 90% 60%)",
-                  ],
-                }}
-                transition={{ duration: 0.3, repeat: Infinity }}
-              >
-                YOU ARE INVITED...
-              </motion.h1>
-          )}
-        </AnimatePresence>
+  {phase === 1 && (
+    <motion.h1
+      style={{
+        fontFamily: "'Irish Grover', cursive",
+        fontSize: "clamp(2.5rem, 7vw, 6rem)", // ✅ responsive ONLY
+      }}
+      className="text-5xl md:text-8xl text-blue-400"
+      animate={{
+        textShadow: [
+          "0 0 20px hsl(220 90% 60%)",
+          "0 0 5px hsl(220 90% 60%)",
+          "0 0 30px hsl(220 90% 60%)",
+          "none",
+          "0 0 20px hsl(220 90% 60%)",
+        ],
+      }}
+      transition={{ duration: 0.3, repeat: Infinity }}
+    >
+      YOU ARE INVITED...
+    </motion.h1>
+  )}
+</AnimatePresence>
+
       </motion.div>
     </AnimatePresence>
+    </>
   );
 };
 
