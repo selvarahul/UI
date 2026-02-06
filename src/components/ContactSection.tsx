@@ -235,17 +235,22 @@ const ContactSection: React.FC = () => {
               >
                 <MapPin size={18} />
                 <a
-                  href="https://www.google.com/maps/dir/?api=1&destination=Vel+Tech+Rangarajan+Dr+Sagunthala+R%26D+Institute+of+Science+and+Technology"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  <p>
-                    Department of CSE VTMT<br />
-                    Engineering College,<br />
-                    City, State - 600001
-                  </p>
-                </a>
+  href="https://www.google.com/maps/dir/?api=1&destination=Vel+Tech+Rangarajan+Dr+Sagunthala+R%26D+Institute+of+Science+and+Technology"
+  target="_blank"
+  rel="noopener noreferrer"
+  style={{ textDecoration: "none", color: "inherit" }}
+>
+  <p>
+    Department of CSE VTMT<br />
+    Engineering College,<br />
+    City, State - 600001
+    <br />
+    <span style={{ color: "#2563eb", fontWeight: "600" }}>
+      Click here to get map
+    </span>
+  </p>
+</a>
+
               </div>
             </div>
           </div>
