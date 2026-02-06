@@ -77,6 +77,11 @@ const IntroExperience = ({ onComplete }: IntroExperienceProps) => {
 
   return (
     <>
+    <style>
+        {`
+          @import url('https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap');
+        `}
+      </style>
     
     <AnimatePresence>
       <motion.div
@@ -152,7 +157,6 @@ const IntroExperience = ({ onComplete }: IntroExperienceProps) => {
           />
         </svg>
 
-        {/* Phase 0 */}
         <AnimatePresence>
   {phase === 0 && !isEntering && (
     <motion.div className="text-center relative">
@@ -179,7 +183,6 @@ const IntroExperience = ({ onComplete }: IntroExperienceProps) => {
 </AnimatePresence>
 
 
-        {/* Phase 1 */}
         <AnimatePresence>
   {phase === 1 && (
     <motion.h1
