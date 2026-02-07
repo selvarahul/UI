@@ -8,15 +8,21 @@ const ContactSection: React.FC = () => {
   const coordinators = [
     {
       type: "Staff Coordinator",
-      name: "Dr. John Smith",
-      phone: "+91 98765 43210",
-      email: "john.smith@college.edu",
+      name: "Dr.K.Muthukannan",
+      phone: "+91 99441 79701",
+      email: "ourinnov82k26@gmail.com",
+    },
+    {
+      type: "Staff Coordinator",
+      name: "Ms.P.Selva Rathinam",
+      phone: "+91 96292 52119",
+      email: "ourinnov82k26@gmail.com",
     },
     {
       type: "Student Coordinator",
-      name: "Jane Doe",
-      phone: "+91 98765 43211",
-      email: "jane.doe@college.edu",
+      name: "P. Thilakavathy",
+      phone: "+91 8925383660",
+      email: "ourinnov82k26@gmail.com",
     },
   ];
 
