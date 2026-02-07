@@ -7,13 +7,13 @@ const ContactSection: React.FC = () => {
 
   const coordinators = [
     {
-      type: "Staff Coordinator",
+      type: "Faculty Coordinator",
       name: "Dr.K.Muthukannan",
       phone: "+91 99441 79701",
       email: "ourinnov82k26@gmail.com",
     },
     {
-      type: "Staff Coordinator",
+      type: "Faculty Coordinator",
       name: "Ms.P.Selva Rathinam",
       phone: "+91 96292 52119",
       email: "ourinnov82k26@gmail.com",

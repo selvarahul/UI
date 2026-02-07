@@ -10,7 +10,7 @@ const technicalEvents = [
     description:
       "Break through digital barriers in this intense 24-hour hackathon. Build innovative solutions and compete for glory in the upside down of code.",
     icon: <Code size={48} />,
-    formUrl: "https://docs.google.com/forms/d/e/1FAIpQLSf720nE6suk83cUnnbU8f5ceCJsubffLP_-NHrg3ZZMbvvrtQ/viewform?usp=dialog",
+    formUrl: "https://docs.google.com/forms/d/1-qiJYnGQGyfAgg1kAc2BHP44DZOFJDXJbU1BXGwk54w/edit",
   },
   {
     id: "mindflayer-quest",
@@ -18,7 +18,7 @@ const technicalEvents = [
     description:
       "Navigate through complex algorithms and data structures. Solve mind-bending puzzles that test your computational thinking.",
     icon: <Brain size={48} />,
-    formUrl: "https://forms.gle/MINDFLAYER_FORM",
+    formUrl: "https://docs.google.com/forms/d/1fyMRenpf7ZIqVtUAkJZSuvf6k5lo7NnPFcEQlOeLhd8/edit?pli=1ttps://forms.gle/MINDFLAYER_FORM",
   },
   {
     id: "upside-down-chronicles",
@@ -26,7 +26,7 @@ const technicalEvents = [
     description:
       "Present your research and innovations in this paper presentation event. Share your discoveries from the depths of technology.",
     icon: <BookOpen size={48} />,
-    formUrl: "https://forms.gle/PAPER_PRESENTATION_FORM",
+    formUrl: "https://docs.google.com/forms/d/1DKmmFDW4hqOLsVkJcrW1PYyROeKdGEKCc70V6hlafjg/edit",
   },
   {
     id: "code-rift",
@@ -34,7 +34,7 @@ const technicalEvents = [
     description:
       "Speed coding challenge where time bends and logic twists. Race against the clock in this competitive programming showdown.",
     icon: <Zap size={48} />,
-    formUrl: "https://forms.gle/CODE_RIFT_FORM",
+    formUrl: "https://docs.google.com/forms/d/1YqRTE-uqpV541EIAAKjwas2Ma5Rq_xBSv7e1B5O0TLQ/edit",
   },
 ];
 
@@ -45,7 +45,7 @@ const nonTechnicalEvents = [
     description:
       "Embark on an epic treasure hunt across campus. Decode clues, solve mysteries, and find hidden portals to the prize.",
     icon: <Search size={48} />,
-    formUrl: "https://forms.gle/HAWKINS_HUNT_FORM",
+    formUrl: "https://docs.google.com/forms/d/1SRH0Kxn8FUDuRHCl_X-jrJMIZXQiYFVYrD3krZXbfYA/edit",
   },
   {
     id: "vecnas-patterns",
@@ -53,7 +53,7 @@ const nonTechnicalEvents = [
     description:
       "Test your logical thinking with pattern recognition challenges. Uncover the hidden sequences before time runs out.",
     icon: <Puzzle size={48} />,
-    formUrl: "https://forms.gle/VECNAS_PATTERNS_FORM",
+    formUrl: "https://docs.google.com/forms/d/14kS37XAQ0_cYMrU1G5Obn2XtlMhTy-ciAVnsR4ey_Po/edit",
   },
 ];
 
@@ -85,7 +85,7 @@ const EventsSection: React.FC = () => {
                 letterSpacing: "0.15em",
                 marginBottom: "12px",
                 color: isStrangerWorld ? "#ef4444" : "#e5e7eb",
-                textShadow: "0 0 12px rgba(255,0,0,0.6)",
+                textShadow: "0 0 12px #ff000099",
               }}
             >
               Technical Events

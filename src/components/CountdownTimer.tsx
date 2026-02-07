@@ -11,8 +11,8 @@ interface TimeLeft {
 const CountdownTimer: React.FC = () => {
   const { isStrangerWorld } = useWorld();
 
-  // 🎯 FIXED EVENT DATE: February 25, 2026 (change year if needed)
-  const targetDate = new Date(2026, 1, 25, 0, 0, 0); // YYYY, MM(0-based), DD
+  // 🎯 FIXED EVENT DATE: February 25, 2026
+  const targetDate = new Date(2026, 1, 25, 0, 0, 0);
 
   const calculateTimeLeft = (): TimeLeft => {
     const now = new Date().getTime();
@@ -50,38 +50,65 @@ const CountdownTimer: React.FC = () => {
   ];
 
   return (
-    <div className="flex gap-4 md:gap-6 justify-center">
-      {timeUnits.map((unit, index) => (
-        <div
-          key={unit.label}
-          className={`countdown-box rounded-lg p-4 md:p-6 min-w-[70px] md:min-w-[90px] text-center transition-all duration-700 ${
+    <>
+      {/* Irish Grover Font */}
+      <style>
+        {`
+          @import url('https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap');
+        `}
+      </style>
+
+      {/* Countdown */}
+      <div className="flex gap-4 md:gap-6 justify-center">
+        {timeUnits.map((unit, index) => (
+          <div
+            key={unit.label}
+            className={`countdown-box rounded-lg p-4 md:p-6 min-w-[70px] md:min-w-[90px] text-center transition-all duration-700 ${
+              isStrangerWorld
+                ? "border-red-500/50 bg-black/60"
+                : "border-primary/50 bg-card/50"
+            }`}
+            style={{ animationDelay: `${index * 0.1}s` }}
+          >
+            <div
+              className={`font-display text-3xl md:text-4xl font-bold transition-all duration-700 ${
+                isStrangerWorld
+                  ? "text-red-500 text-glow"
+                  : "text-primary text-glow"
+              }`}
+            >
+              {formatNumber(unit.value)}
+            </div>
+            <div
+              className={`font-body text-xs uppercase tracking-wider mt-2 transition-all duration-700 ${
+                isStrangerWorld
+                  ? "text-red-200/60"
+                  : "text-muted-foreground"
+              }`}
+            >
+              {unit.label}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {/* REAL GAME BEGINS (Below Timer) */}
+      <div className="text-center mt-6">
+        <p
+          style={{
+            fontFamily: "'Irish Grover', cursive",
+            letterSpacing: "0.15em",
+          }}
+          className={`text-lg md:text-xl transition-all duration-700 ${
             isStrangerWorld
-              ? "border-red-500/50 bg-black/60"
-              : "border-primary/50 bg-card/50"
+              ? "text-red-500 text-glow"
+              : "text-primary text-glow"
           }`}
-          style={{ animationDelay: `${index * 0.1}s` }}
         >
-          <div
-            className={`font-display text-3xl md:text-4xl font-bold transition-all duration-700 ${
-              isStrangerWorld
-                ? "text-red-500 text-glow"
-                : "text-primary text-glow"
-            }`}
-          >
-            {formatNumber(unit.value)}
-          </div>
-          <div
-            className={`font-body text-xs uppercase tracking-wider mt-2 transition-all duration-700 ${
-              isStrangerWorld
-                ? "text-red-200/60"
-                : "text-muted-foreground"
-            }`}
-          >
-            {unit.label}
-          </div>
-        </div>
-      ))}
-    </div>
+          REAL GAME BEGINS
+        </p>
+      </div>
+    </>
   );
 };
 

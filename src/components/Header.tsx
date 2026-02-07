@@ -66,23 +66,23 @@ const Header: React.FC = () => {
                   width: "auto",
                 }}
               />
-              <p
-  style={{
-    background: "none",
-    border: "none",
-    cursor: "pointer",
-    fontSize: "13px",
-    letterSpacing: "0.2em",
-    textTransform: "uppercase",
-    color: isStrangerWorld
-      ? "#fecaca"
-      : "rgba(226,232,240,0.85)",
-    transition: "color 0.3s ease",
-  }}
->
-  VELTECH MULTITECH
-</p>
 
+              {/* VELTECH MULTITECH — Algerian */}
+              <p
+                style={{
+                  fontFamily:
+                    "Algerian, 'Arial Black', 'Times New Roman', serif", // ✅ Algerian
+                  fontSize: "13px",
+                  letterSpacing: "0.25em",
+                  textTransform: "uppercase",
+                  color: isStrangerWorld
+                    ? "#ef4444"
+                    : "rgba(226,232,240,0.85)",
+                  transition: "color 0.3s ease",
+                }}
+              >
+                VELTECH MULTITECH
+              </p>
             </div>
 
             {/* Desktop Navigation */}
@@ -126,7 +126,7 @@ const Header: React.FC = () => {
               ))}
             </nav>
 
-            {/* Hamburger (Mobile) */}
+            {/* Hamburger */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               style={{
@@ -204,7 +204,7 @@ const Header: React.FC = () => {
         )}
       </header>
 
-      {/* Inline Responsive Control */}
+      {/* Responsive Control */}
       <style>
         {`
           @media (max-width: 768px) {
