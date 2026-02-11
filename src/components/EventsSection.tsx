@@ -8,7 +8,7 @@ const technicalEvents = [
     id: "hack-the-gate",
     title: "Hack the Gate",
     description:
-      "Break through digital barriers in this intense 24-hour hackathon. Build innovative solutions and compete for glory in the upside down of code.",
+      "Hack The Gate is a technical event where teams solve debugging problems, develop solutions, and design simple UI/UX in different rounds. It challenges participants to think smart, work fast, and prove their real technical skills.",
     icon: <Code size={48} />,
     formUrl: "https://docs.google.com/forms/d/1-qiJYnGQGyfAgg1kAc2BHP44DZOFJDXJbU1BXGwk54w/edit",
   },
@@ -16,7 +16,7 @@ const technicalEvents = [
     id: "mindflayer-quest",
     title: "Mindflayer Quest",
     description:
-      "Navigate through complex algorithms and data structures. Solve mind-bending puzzles that test your computational thinking.",
+      "A brain‑twisting quiz where riddles, patterns, and logic are your weapons. Step into the Mind Flayer’s lair, face its challenges, and prove your intellect can survive the darkness. Only the sharpest minds escape unscathed.",
     icon: <Brain size={48} />,
     formUrl: "https://docs.google.com/forms/d/1fyMRenpf7ZIqVtUAkJZSuvf6k5lo7NnPFcEQlOeLhd8/edit?pli=1ttps://forms.gle/MINDFLAYER_FORM",
   },
@@ -24,7 +24,7 @@ const technicalEvents = [
     id: "upside-down-chronicles",
     title: "Upside-Down Chronicles",
     description:
-      "Present your research and innovations in this paper presentation event. Share your discoveries from the depths of technology.",
+      "A technical paper presentation where original ideas face critical questioning. Defend your research, justify your logic, and prove your innovation can survive the Upside Down.",
     icon: <BookOpen size={48} />,
     formUrl: "https://docs.google.com/forms/d/1DKmmFDW4hqOLsVkJcrW1PYyROeKdGEKCc70V6hlafjg/edit",
   },
@@ -32,7 +32,7 @@ const technicalEvents = [
     id: "code-rift",
     title: "Code Rift",
     description:
-      "Speed coding challenge where time bends and logic twists. Race against the clock in this competitive programming showdown.",
+      "Vibe Coding Contest tests your coding skills, logical thinking, and ability to build a working application within a limited time. Participants can use approved AI tools but must show originality and clearly explain their code.",
     icon: <Zap size={48} />,
     formUrl: "https://docs.google.com/forms/d/1YqRTE-uqpV541EIAAKjwas2Ma5Rq_xBSv7e1B5O0TLQ/edit",
   },
@@ -51,7 +51,7 @@ const nonTechnicalEvents = [
     id: "vecnas-patterns",
     title: "Vecna's Patterns",
     description:
-      "Test your logical thinking with pattern recognition challenges. Uncover the hidden sequences before time runs out.",
+      " A mind‑bending clue‑connecting challenge. Every hint is a thread in a larger puzzle—connect them right, or get lost in the shadows. Sharpen your observation, test your logic, and prove your mind can unravel the mysteries of Hawkins.",
     icon: <Puzzle size={48} />,
     formUrl: "https://docs.google.com/forms/d/14kS37XAQ0_cYMrU1G5Obn2XtlMhTy-ciAVnsR4ey_Po/edit",
   },

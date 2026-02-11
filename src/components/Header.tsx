@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useWorld } from "@/contexts/WorldContext";
-import veltechLogo from "@/assets/veltech_logo1.png";
+import veltechLogo from "@/assets/veltech-logo.png";
 
 const Header: React.FC = () => {
   const { isStrangerWorld } = useWorld();
@@ -67,11 +67,10 @@ const Header: React.FC = () => {
                 }}
               />
 
-              {/* VELTECH MULTITECH — Algerian */}
+              {/* VELTECH MULTITECH — Times New Roman */}
               <p
                 style={{
-                  fontFamily:
-                    "Algerian, 'Arial Black', 'Times New Roman', serif", // ✅ Algerian
+                  fontFamily: "'Times New Roman', Times, serif",
                   fontSize: "13px",
                   letterSpacing: "0.25em",
                   textTransform: "uppercase",

@@ -5,7 +5,7 @@ interface EventCardProps {
   id: string;
   title: string;
   description: string;
-  icon: React.ReactElement; // ✅ FIXED TYPE
+  icon: React.ReactElement;
   formUrl: string;
 }
 
@@ -20,16 +20,12 @@ const EventCard: React.FC<EventCardProps> = ({
   const isFlipped = flippedCardId === id;
 
   const handleClick = () => {
-    if (isFlipped) {
-      flipCard(null);
-    } else {
-      flipCard(id);
-    }
+    flipCard(isFlipped ? null : id);
   };
 
   return (
     <div
-      className="flip-card h-[280px] sm:h-[320px] cursor-pointer group"
+      className="flip-card min-h-[280px] sm:min-h-[320px] cursor-pointer group"
       onClick={handleClick}
     >
       <div className={`flip-card-inner ${isFlipped ? 'flipped' : ''}`}>
@@ -44,7 +40,7 @@ const EventCard: React.FC<EventCardProps> = ({
         >
           <div className="absolute inset-0 stars-bg opacity-20 rounded-xl" />
 
-          {/* ICON (SAFE NOW) */}
+          {/* ICON */}
           <div
             className={`mb-3 sm:mb-4 transition-all duration-500 ${
               isStrangerWorld ? 'text-red-400' : 'text-primary'
@@ -56,7 +52,7 @@ const EventCard: React.FC<EventCardProps> = ({
           </div>
 
           <h3
-            className={`font-display text-lg sm:text-xl font-bold tracking-wide mb-2 sm:mb-3 transition-all duration-500 ${
+            className={`font-display text-lg sm:text-xl font-bold tracking-wide mb-2 sm:mb-3 ${
               isStrangerWorld ? 'text-red-100' : 'text-foreground'
             }`}
           >
@@ -64,7 +60,7 @@ const EventCard: React.FC<EventCardProps> = ({
           </h3>
 
           <p
-            className={`font-body text-xs sm:text-sm transition-all duration-500 ${
+            className={`font-body text-xs sm:text-sm ${
               isStrangerWorld ? 'text-red-300/60' : 'text-muted-foreground'
             }`}
           >
@@ -85,12 +81,13 @@ const EventCard: React.FC<EventCardProps> = ({
           <div className="absolute inset-0 red-particles opacity-30" />
           <div className="absolute inset-0 bg-gradient-radial from-red-900/20 via-transparent to-black/40" />
 
-          <div className="relative z-10 px-1">
+          <div className="relative z-10 w-full max-h-[260px] sm:max-h-[300px] overflow-y-auto px-1 scrollbar-thin scrollbar-thumb-red-500/40">
             <h3 className="font-display text-lg sm:text-xl font-bold tracking-wide mb-3 sm:mb-4 text-red-400 text-glow">
               {title}
             </h3>
 
-            <p className="font-body text-xs sm:text-sm text-red-100/80 mb-4 sm:mb-6 leading-relaxed line-clamp-4">
+            {/* ✅ FULL DESCRIPTION – NO CUT */}
+            <p className="font-body text-xs sm:text-sm text-red-100/80 mb-5 leading-relaxed">
               {description}
             </p>
 

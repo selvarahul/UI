@@ -18,7 +18,7 @@ const HeroSection: React.FC = () => {
       id="hero"
       style={{
         minHeight: "100vh",
-        padding: "120px 20px 80px",
+        padding: "120px 16px 80px",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -27,7 +27,6 @@ const HeroSection: React.FC = () => {
         overflow: "hidden",
       }}
     >
-      {/* Google Font Import (INLINE SAFE) */}
       <style>
         {`
           @import url('https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap');
@@ -46,28 +45,52 @@ const HeroSection: React.FC = () => {
       <div
         style={{
           textAlign: "center",
+          width: "100%",
           maxWidth: "1200px",
           zIndex: 2,
         }}
       >
-        {/* Subtitle */}
+        {/* ================= DEPARTMENT (AUTO SCALE FONT) ================= */}
         <p
           style={{
-            fontSize: "14px",
-            letterSpacing: "0.3em",
+            fontSize: "clamp(12px, 3vw, 20px)",   // 🔥 FONT SHRINKS ON SMALL SCREENS
+            letterSpacing: "clamp(0.08em, 0.22vw, 0.22em)",
             textTransform: "uppercase",
-            marginBottom: "24px",
+            marginBottom: "8px",
             color: isStrangerWorld
-              ? "rgba(255,120,120,0.85)"
-              : "rgba(120,170,255,0.85)",
+              ? "rgba(255,120,120,0.9)"
+              : "rgba(120,170,255,0.9)",
+
+            whiteSpace: "nowrap",
+            paddingInline: "14px",
             opacity: 0,
             animation: "fadeIn 1s forwards",
           }}
         >
-          Department of Computer Science and Engineering proudly presents
+          Department of Computer Science and Engineering
         </p>
 
-        {/* ✅ TITLE IMAGE SWITCH (PERFECTLY CENTERED & RESPONSIVE) */}
+        {/* ================= PROUDLY PRESENTS ================= */}
+        <p
+          style={{
+            fontSize: "clamp(10px, 2.4vw, 14px)", // 🔥 SHRINKS FASTER
+            letterSpacing: "clamp(0.14em, 0.28vw, 0.32em)",
+            textTransform: "uppercase",
+            marginBottom: "28px",
+            color: isStrangerWorld
+              ? "rgba(255,150,150,0.75)"
+              : "rgba(150,190,255,0.75)",
+
+            whiteSpace: "nowrap",
+            paddingInline: "14px",
+            opacity: 0,
+            animation: "fadeIn 1s forwards 0.2s",
+          }}
+        >
+          Proudly Presents
+        </p>
+
+        {/* ================= TITLE IMAGE ================= */}
         <div
           style={{
             position: "relative",
@@ -77,50 +100,41 @@ const HeroSection: React.FC = () => {
             marginInline: "auto",
           }}
         >
-          {/* Normal World */}
           <img
             src={titleNormal1}
             alt="Normal World"
             style={{
               width: "100%",
               height: "auto",
-              display: "block",
-              margin: "0 auto",
               transition: "all 0.7s ease",
               opacity: isStrangerWorld ? 0 : 1,
-              transform: isStrangerWorld ? "scale(0.95)" : "scale(1)",
               position: isStrangerWorld ? "absolute" : "relative",
-              inset: 0,
             }}
           />
 
-          {/* Stranger World */}
           <img
             src={titleNormal2}
             alt="Stranger World"
             style={{
               width: "100%",
               height: "auto",
-              display: "block",
-              margin: "0 auto",
               transition: "all 0.7s ease",
               opacity: isStrangerWorld ? 1 : 0,
-              transform: isStrangerWorld ? "scale(1)" : "scale(1.05)",
               position: isStrangerWorld ? "relative" : "absolute",
-              inset: 0,
             }}
           />
         </div>
 
-        {/* Tagline */}
+        {/* ================= TAGLINE ================= */}
         <p
           style={{
-            fontSize: "26px",
+            fontSize: "clamp(15px, 4vw, 26px)",
             letterSpacing: "0.2em",
             marginBottom: "48px",
             color: isStrangerWorld
               ? "rgba(255,80,80,0.9)"
               : "rgba(120,170,255,0.9)",
+            paddingInline: "16px",
             opacity: 0,
             animation: "fadeIn 1s forwards 0.4s",
           }}
@@ -128,14 +142,13 @@ const HeroSection: React.FC = () => {
           Upside Down of Innovation
         </p>
 
-        {/* CTA Button */}
+        {/* ================= CTA ================= */}
         <button
           onClick={handleRegisterClick}
           style={{
             padding: "16px 40px",
-            fontSize: "18px",
+            fontSize: "clamp(14px, 3.5vw, 18px)",
             letterSpacing: "0.2em",
-            textTransform: "uppercase",
             borderRadius: "10px",
             cursor: "pointer",
             border: `2px solid ${
@@ -145,29 +158,21 @@ const HeroSection: React.FC = () => {
             color: "#fff",
             transition: "all 0.4s ease",
           }}
-          onMouseEnter={(e) =>
-            (e.currentTarget.style.transform = "scale(1.07)")
-          }
-          onMouseLeave={(e) =>
-            (e.currentTarget.style.transform = "scale(1)")
-          }
         >
           Register Now
         </button>
 
-        {/* Countdown */}
         <div style={{ marginTop: "50px" }}>
           <CountdownTimer />
         </div>
       </div>
 
-      {/* Falling Stars */}
+      {/* ================= FALLING STARS ================= */}
       <div
         style={{
           position: "absolute",
           inset: 0,
           pointerEvents: "none",
-          overflow: "hidden",
         }}
       >
         {[...Array(5)].map((_, i) => (
